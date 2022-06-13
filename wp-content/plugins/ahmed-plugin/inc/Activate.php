@@ -2,9 +2,10 @@
 /**
  * @package AhmedPlugin
  */
+namespace Inc;
 
-class AhmedPluginDeactivate{
-	public static function deactivate(){
+class Activate{
+	public static function activate(){
 		flush_rewrite_rules();
 	}
 }

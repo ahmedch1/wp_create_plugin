@@ -13,6 +13,16 @@
 
 defined('ABSPATH') or die('Hey you can\'t acces this file !');
 
+if(file_exists(dirname(__FILE__).'/vendor/autoload.php')){
+	require_once dirname(__FILE__). '/vendor/autoload.php';
+}
+
+use Inc\Activate;
+use Inc\Deactivate;
+use Inc\Admin\AdminPages;
+
+require_once plugin_dir_path(__FILE__) . 'inc/Admin/AdminPages.php';
+
 if(!class_exists('AhmedPlugin')) {
 	class AhmedPlugin {
 		public $plugin;
@@ -56,8 +66,8 @@ if(!class_exists('AhmedPlugin')) {
 		}
 
 		function activate() {
-			require_once plugin_dir_path( __FILE__ ) . 'inc/ahmed-plugin-activate.php';
-			AhmedPluginActivate::activate();
+//			require_once plugin_dir_path( __FILE__ ) . 'inc/ahmed-plugin-activate.php';
+			Activate::activate();
 		}
 	}
 
@@ -66,11 +76,9 @@ if(!class_exists('AhmedPlugin')) {
 //	AhmedPlugin::register();
 
 //activation
-	require_once plugin_dir_path(__FILE__) . 'inc/ahmed-plugin-activate.php';
 	register_activation_hook( __FILE__, array( $ahmedPlugin, 'activate' ) );
 
 //deactivation
-	require_once plugin_dir_path( __FILE__ ) . 'inc/ahmed-plugin-deactivate.php';
-	register_deactivation_hook( __FILE__, array( 'AhmedPluginDeactivate', 'deactivate' ) );
+	register_deactivation_hook( __FILE__, array( 'Deactivate', 'deactivate' ) );
 
 }

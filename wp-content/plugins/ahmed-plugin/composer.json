@@ -1,0 +1,19 @@
+{
+    "name": "ahmed/ahmed-plugin",
+    "description": "Awesome Starter Plugin Example",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Ahmed Chouihi",
+            "email": "contact@ahmedchouihi.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Inc\\":"./inc"
+        }
+    }
+}
